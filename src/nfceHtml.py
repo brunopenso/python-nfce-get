@@ -1,22 +1,18 @@
 import json
+from src.util import clearText, normalizeKey
+
 from bs4 import BeautifulSoup
 
-def clearText(text):
-    value = text.splitlines()
-    value =  "".join(value).strip()
-    value = value.replace('\t', '')
-    return value
-
-def getJsonFromHtml(data):
-    json = {
-        'local': {
-
-        },
-        'itens': []
+json = {
+    'local': {
+    },
+    'itens': [],
+    'totals': {
+    },
+    'nfce': {
     }
-
-    soup = BeautifulSoup(data, 'html.parser')
-
+}
+def fillCompanyData(soup):
     divConteudo = soup.find(id="conteudo")
     divs = divConteudo.find_all('div')
     place = divs[1].find_all('div')
@@ -25,6 +21,7 @@ def getJsonFromHtml(data):
     json['local']['cnpj'] = clearText(place[1].get_text())
     json['local']['address'] = clearText(place[2].get_text())
 
+def fillItens(soup):
     tableResult = soup.find(id="tabResult").find_all("tr")
     for row in tableResult:
         tds = row.find_all("td")
@@ -42,4 +39,34 @@ def getJsonFromHtml(data):
                 if (span['class'][0] == 'RvlUnit'):
                     jsonItem['unitaryValue'] = clearText(htmlValue).replace("Vl. Unit.:", '').strip()
         json['itens'].append(jsonItem)
+
+def fillNfceTotals(soup):
+    totals = soup.find(id="totalNota")
+    divs = totals.find_all('div')
+    for div in divs:
+        label = clearText(div.find('label').get_text())
+        value = clearText(div.find('span').get_text())
+        if (label == 'Qtd. total de itens:'):
+            json['totals']['quantityItens'] = value
+        if (label == 'Valor total R$:'):
+            json['totals']['total'] = value
+        if (label == 'Descontos R$:'):
+            json['totals']['discounts'] = value
+        if ('nformação dos Tributos Totais Incidentes' in label):
+            json['totals']['taxes'] = value
+
+def getJsonFromHtml(data):
+    soup = BeautifulSoup(data, 'html.parser')
+
+    fillCompanyData(soup)
+
+    fillItens(soup)
+
+    fillNfceTotals(soup)
+
+    spans = soup.find_all('span')
+    for span in spans:
+        if (span['class'][0] == 'chave'):
+            json['nfce']['key'] = normalizeKey(span.get_text())
+
     return json
