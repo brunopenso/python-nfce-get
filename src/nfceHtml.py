@@ -40,6 +40,6 @@ def getJsonFromHtml(data):
                 if (span['class'][0] == 'RUN'):
                     jsonItem['unit'] = clearText(htmlValue).replace("UN: ", '')
                 if (span['class'][0] == 'RvlUnit'):
-                    jsonItem['unitaryValue'] = clearText(htmlValue).replace("Vl. Unit.:", '')
+                    jsonItem['unitaryValue'] = clearText(htmlValue).replace("Vl. Unit.:", '').strip()
         json['itens'].append(jsonItem)
     return json
