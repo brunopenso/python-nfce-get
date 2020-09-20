@@ -15,10 +15,10 @@ clean: ## Remove cache files
 # Tests section
 ###
 test: clean## Run tests
-	@pytest -x src/
+	@pytest -x tests/
 
 test-coverage: clean ## Run tests with coverage output
-	@pytest -x src/ --cov . --cov-report term-missing --cov-report xml
+	@pytest -x tests/ --cov . --cov-report term-missing --cov-report xml
 
 test-matching: clean ## Run tests by match ex: make test-matching k=name_of_test
-	@pytest -k $(k) src/
+	@pytest -k $(k) tests/
