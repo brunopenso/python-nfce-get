@@ -1,10 +1,12 @@
 from src import nfceHtml
+import urllib3
 
-# htmlData = util.retrieveHtmlData('http://www.fazenda.pr.gov.br/nfce/qrcode?p=41200976430438005300650150002022071015187452|2|1|1|E9C67EF7E8B75CD401B3F6D3B1FD716ED22B3890')
+def getJsonFromQrcodelink(link):
+    http = urllib3.PoolManager()
+    htmlData = http.request('GET', link).data
+    return nfceHtml.getJsonFromHtml(htmlData)
 
-f = open("samples/receita.html", 'r')
-htmlData = f.read()
-
-jsonData = nfceHtml.getJsonFromHtml(htmlData)
-
-print(jsonData)
+def getJsonFromFile(filePath):
+    f = open(filePath, 'r')
+    htmlData = f.read()
+    return nfceHtml.getJsonFromHtml(htmlData)
