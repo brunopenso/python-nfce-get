@@ -35,17 +35,17 @@ def fill_itens_item(tds):
     for column in tds:
         spans = column.find_all('span')
         for span in spans:
-            html_value = span.get_text()
+            value = clear_text(span.get_text())
             if (span['class'][0] == 'txtTit2'):
-                json_item['name'] = clear_text(html_value)
+                json_item['name'] = value
             if (span['class'][0] == 'Rqtd'):
-                json_item['quantity'] = clear_text(html_value).replace("Qtde.:", '')
+                json_item['quantity'] = value.replace("Qtde.:", '')
             if (span['class'][0] == 'RUN'):
-                json_item['unit'] = clear_text(html_value).replace("UN: ", '')
+                json_item['unit'] = value.replace("UN: ", '')
             if (span['class'][0] == 'RvlUnit'):
-                json_item['unitaryValue'] = clear_text(html_value).replace("Vl. Unit.:", '').strip()
+                json_item['unitaryValue'] = value.replace("Vl. Unit.:", '').strip()
             if (span['class'][0] == 'valor'):
-                json_item['totalValue'] = clear_text(html_value).strip()
+                json_item['totalValue'] = value.strip()
     json['itens'].append(json_item)
 
 def fill_nfce_totals(soup):
@@ -84,14 +84,15 @@ def fill_nfce_info_general(div):
         if (li is None or li == '\n'):
             continue
         if (isinstance(li, Tag)):
-            if (li.get_text().strip() == 'Número:'):
+            value = li.get_text().strip()
+            if (value == 'Número:'):
                 json['nfce']['numero'] = li.nextSibling.strip()
-            if (li.get_text().strip() == 'Série:'):
+            if (value == 'Série:'):
                 json['nfce']['serie'] = li.nextSibling.strip()
-            if (li.get_text().strip() == 'Emissão:'):
+            if (value == 'Emissão:'):
                 date_list = li.nextSibling.strip().split(' ')
                 json['nfce']['date'] = date_list[0] + ' ' + date_list[1]
-            if (li.get_text().strip() == 'Protocolo de Autorização:'):
+            if (value == 'Protocolo de Autorização:'):
                 json['nfce']['protocol'] = li.nextSibling.strip()
             if ('Ambiente de Produção' in li.get_text()):
                 value = li.get_text().split('-')
