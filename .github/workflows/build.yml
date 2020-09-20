@@ -12,11 +12,12 @@ jobs:
           uses: sonarsource/sonarcloud-github-action@master
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          args: >
-            -Dsonar.organization=brunopenso
-            -Dsonar.projectKey=9b6a84d1-544b-4413-8c39-bb02a0de21ea
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.sources=src
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.tests=tests/
-            -Dsonar.verbose=true
+          with:
+            args: >
+                -Dsonar.organization=brunopenso
+                -Dsonar.projectKey=9b6a84d1-544b-4413-8c39-bb02a0de21ea
+                -Dsonar.python.coverage.reportPaths=coverage.xml
+                -Dsonar.sources=src
+                -Dsonar.test.exclusions=tests/**
+                -Dsonar.tests=tests/
+                -Dsonar.verbose=true
