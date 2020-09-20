@@ -12,7 +12,7 @@ json = {
     'nfce': {
     }
 }
-def fillCompanyData(soup):
+def fill_company_data(soup):
     divConteudo = soup.find(id="conteudo")
     divs = divConteudo.find_all('div')
     place = divs[1].find_all('div')
@@ -24,7 +24,7 @@ def fillCompanyData(soup):
     json['local']['cnpj'] = cnpj
     json['local']['address'] = clear_text(place[2].get_text())
 
-def fillItens(soup):
+def fill_itens(soup):
     tableResult = soup.find(id="tabResult").find_all("tr")
     for row in tableResult:
         tds = row.find_all("td")
@@ -45,7 +45,7 @@ def fillItens(soup):
                     jsonItem['totalValue'] = clear_text(htmlValue).strip()
         json['itens'].append(jsonItem)
 
-def fillNfceTotals(soup):
+def fill_nfce_totals(soup):
     totals = soup.find(id="totalNota")
     divs = totals.find_all('div')
     for div in divs:
@@ -62,7 +62,7 @@ def fillNfceTotals(soup):
         if (label == 'Valor a pagar R$:'):
             json['totals']['valueToPay'] = value
 
-def fillNfceInfos(soup):
+def fill_nfce_infos(soup):
     divInfo = soup.find(id='infos')
     divs = divInfo.find_all('div')
     for div in divs:
@@ -90,12 +90,12 @@ def fillNfceInfos(soup):
 def getJsonFromHtml(data):
     soup = BeautifulSoup(data, 'html.parser')
 
-    fillCompanyData(soup)
+    fill_company_data(soup)
 
-    fillItens(soup)
+    fill_itens(soup)
 
-    fillNfceTotals(soup)
+    fill_nfce_totals(soup)
 
-    fillNfceInfos(soup)
+    fill_nfce_infos(soup)
 
     return json
