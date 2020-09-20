@@ -80,6 +80,9 @@ def fillNfceInfos(soup):
                         json['nfce']['date'] = dateList[0] + ' ' + dateList[1]
                     if (li.get_text().strip() == 'Protocolo de Autorização:'):
                         json['nfce']['protocol'] = li.nextSibling.strip()
+                    if ('Ambiente de Produção' in li.get_text()):
+                        value = li.get_text().split('-')
+                        json['nfce']['version'] = clearText(value[1]).replace('Versão XML: ', '')
         if (h4Tag is not None and h4Tag.get_text() == 'Chave de acesso'):
             key = div.find('span')
             json['nfce']['protocol'] = normalizeKey(key.get_text())
