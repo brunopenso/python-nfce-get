@@ -25,8 +25,8 @@ def fill_company_data(soup):
     json['local']['address'] = clear_text(place[2].get_text())
 
 def fill_itens(soup):
-    tableResult = soup.find(id="tabResult").find_all("tr")
-    for row in tableResult:
+    table_result = soup.find(id="tabResult").find_all("tr")
+    for row in table_result:
         tds = row.find_all("td")
         json_item = {}
         for column in tds:
@@ -87,7 +87,7 @@ def fill_nfce_infos(soup):
             key = div.find('span')
             json['nfce']['protocol'] = normalize_key(key.get_text())
 
-def getJsonFromHtml(data):
+def get_json_from_html(data):
     soup = BeautifulSoup(data, 'html.parser')
 
     fill_company_data(soup)
