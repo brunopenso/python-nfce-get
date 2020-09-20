@@ -1,6 +1,6 @@
 import urllib3
 from module.nfceHtml import get_json_from_html
-from module.CustomEx import StateInvalidException
+from module.Errors import StateInvalidException
 
 listOfStatesAvailableQrCode = ['pr.gov.br/nfce/qrcode']
 

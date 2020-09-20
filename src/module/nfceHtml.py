@@ -1,5 +1,5 @@
 import json
-from lib.util import clear_text, normalize_key
+from module.util import clear_text, normalize_key
 
 from bs4 import Tag, NavigableString, BeautifulSoup
 
