@@ -7,7 +7,7 @@ on:
       - LICENSE
       - .gitignore
       - .vscode/*
-name: Build
+name: CI/CD
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
         - run: make ci-dependencies
           name: "Install dependencies"
 
-        - run: make test
+        - run: make test-coverage
           name: "Run tests"
 
         - name: SonarCloud Scan
