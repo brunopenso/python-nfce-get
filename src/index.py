@@ -17,4 +17,5 @@ def json_from_qrcode_link(link):
 def json_from_file(file_path):
     f = open(file_path, 'r')
     html_data = f.read()
+    f.close()
     return get_json_from_html(html_data)

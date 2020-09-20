@@ -31,3 +31,7 @@ make ci-dependencies
 make test-coverage
 make test
 ```
+
+## Como utilizar em sua aplicação
+
+TBD
