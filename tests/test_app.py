@@ -8,10 +8,10 @@ class test_app(unittest.TestCase):
         with pytest.raises(StateInvalidException):
             json_from_qrcode_link('google.com')
     def test_url_empty(self):
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             json_from_qrcode_link('')
     def test_url_none(self):
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             json_from_qrcode_link(None)
     def test_ok(self):
         data = json_from_file('./tests/html/nfce1.html')

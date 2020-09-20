@@ -6,7 +6,7 @@ listOfStatesAvailableQrCode = ['pr.gov.br/nfce/qrcode']
 
 def json_from_qrcode_link(link):
     if (link is None or len(link.strip()) == 0):
-        raise Exception('Please inform a valid NFCE url')
+        raise ValueError('Please inform a valid NFCE url')
     for states in listOfStatesAvailableQrCode:
         if (states in link):
             http = urllib3.PoolManager()
