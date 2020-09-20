@@ -1,4 +1,4 @@
-# python_nfce_get
+# python-nfce-get
 
 Biblioteca em python que recupera as informações de uma nota fiscal consumidor eletronica (NFCE) e converte em um JSON para processamento da forma que você precisar.
 

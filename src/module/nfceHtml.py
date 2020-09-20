@@ -28,17 +28,18 @@ def fill_itens_item(json, tds):
         spans = column.find_all('span')
         for span in spans:
             value = clear_text(span.get_text())
-            if (span['class'][0] == 'txtTit2'):
+            clazz = span['class'][0]
+            if (clazz == 'txtTit2'):
                 json_item['name'] = value
-            if (span['class'][0] == 'Rqtd'):
+            if (clazz == 'Rqtd'):
                 json_item['quantity'] = value.replace("Qtde.:", '')
-            if (span['class'][0] == 'RUN'):
+            if (clazz == 'RUN'):
                 json_item['unit'] = value.replace("UN: ", '')
-            if (span['class'][0] == 'RvlUnit'):
+            if (clazz == 'RvlUnit'):
                 json_item['unitaryValue'] = value.replace("Vl. Unit.:", '').strip()
-            if (span['class'][0] == 'valor'):
+            if (clazz == 'valor'):
                 json_item['totalValue'] = value.strip()
-            if (span['class'][0] == 'RCod'):
+            if (clazz == 'RCod'):
                 json_item['code'] = re.findall(r"\d+", value )[0]
     json['itens'].append(json_item)
 
