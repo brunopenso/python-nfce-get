@@ -1,4 +1,5 @@
 import json
+import re
 from module.util import clear_text, normalize_key
 
 from bs4 import Tag, NavigableString, BeautifulSoup
@@ -37,6 +38,8 @@ def fill_itens_item(json, tds):
                 json_item['unitaryValue'] = value.replace("Vl. Unit.:", '').strip()
             if (span['class'][0] == 'valor'):
                 json_item['totalValue'] = value.strip()
+            if (span['class'][0] == 'RCod'):
+                json_item['code'] = re.findall(r"\d+", value )[0]
     json['itens'].append(json_item)
 
 def fill_nfce_totals(json, soup):
@@ -67,7 +70,7 @@ def fill_nfce_infos(json, soup):
             fill_nfce_info_general(json, div)
         if (h4_tag is not None and h4_tag.get_text() == 'Chave de acesso'):
             key = div.find('span')
-            json['nfce']['protocol'] = normalize_key(key.get_text())
+            json['nfce']['chave'] = normalize_key(key.get_text())
 
 def fill_nfce_info_general(json, div):
     lis = div.find('li')
@@ -84,7 +87,7 @@ def fill_nfce_info_general(json, div):
                 date_list = li.nextSibling.strip().split(' ')
                 json['nfce']['date'] = date_list[0] + ' ' + date_list[1]
             if (value == 'Protocolo de Autorização:'):
-                json['nfce']['protocol'] = li.nextSibling.strip()
+                json['nfce']['protocolo'] = li.nextSibling.strip().split(' ')[0]
             if ('Ambiente de Produção' in li.get_text()):
                 value = li.get_text().split('-')
                 json['nfce']['version'] = clear_text(value[1]).replace('Versão XML: ', '')
