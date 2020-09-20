@@ -18,10 +18,10 @@ jobs:
             fetch-depth: 0
 
         - run: make ci-dependencies
-          displayName: "Install dependencies"
+          name: "Install dependencies"
 
         - run: make test
-          displayName: "Run tests"
+          name: "Run tests"
 
         - name: SonarCloud Scan
           uses: sonarsource/sonarcloud-github-action@master
