@@ -1,8 +1,17 @@
 import unittest
-from index import json_from_qrcode_link
-
+import pytest
+from index import json_from_qrcode_link, json_from_file
+from lib.CustomEx import StateInvalidException
 class test_app(unittest.TestCase):
+    def test_url_invalid(self):
+        with pytest.raises(StateInvalidException):
+            json_from_qrcode_link('google.com')
+    def test_url_empty(self):
+        with pytest.raises(Exception):
+            json_from_qrcode_link('')
+    def test_url_none(self):
+        with pytest.raises(Exception):
+            json_from_qrcode_link(None)
     def test_ok(self):
-        data = json_from_qrcode_link('http://www.fazenda.pr.gov.br/nfce/qrcode?p=41200976430438005300650150002022071015187452|2|1|1|E9C67EF7E8B75CD401B3F6D3B1FD716ED22B3890')
-        print(data)
-        self.assertEqual(1, 1)
+        data = json_from_file('./nfce1.html')
+        self.assertEqual(data.local.name, 'IRMAOS MUFFATO E CIA LTDA')
