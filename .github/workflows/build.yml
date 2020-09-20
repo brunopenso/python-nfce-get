@@ -21,6 +21,6 @@ jobs:
                 -Dsonar.sources=src
                 -Dsonar.test.exclusions=tests/**
                 -Dsonar.verbose=true
-                -Dsonar.language=python
+                -Dsonar.language=py
 
 #                -Dsonar.tests=tests/
