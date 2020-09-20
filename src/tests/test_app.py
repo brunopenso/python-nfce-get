@@ -1,7 +1,7 @@
 import unittest
 import pytest
 from index import json_from_qrcode_link, json_from_file
-from lib.CustomEx import StateInvalidException
+from module.CustomEx import StateInvalidException
 class test_app(unittest.TestCase):
     def test_url_invalid(self):
         with pytest.raises(StateInvalidException):

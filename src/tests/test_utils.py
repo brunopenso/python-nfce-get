@@ -1,5 +1,5 @@
 import unittest
-from lib.util import clear_text, normalize_key
+from module.util import clear_text, normalize_key
 
 class test_utils(unittest.TestCase):
     def test_normalizekey_empty(self):
