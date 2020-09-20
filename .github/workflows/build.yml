@@ -16,6 +16,19 @@ jobs:
           with:
             # Disabling shallow clone is recommended for improving relevancy of reporting
             fetch-depth: 0
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: "3.8"
+            addToPath: true
+            architecture: "x64"
+          displayName: "Use Python 3.8"
+
+        - script: make ci-dependencies
+          displayName: "Install dependencies"
+
+        - script: make test
+          displayName: "Run tests"
+
         - name: SonarCloud Scan
           uses: sonarsource/sonarcloud-github-action@master
           env:

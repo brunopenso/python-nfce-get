@@ -22,3 +22,9 @@ test-coverage: clean ## Run tests with coverage output
 
 test-matching: clean ## Run tests by match ex: make test-matching k=name_of_test
 	@pytest -k $(k) tests/
+
+###
+# Dependencies section
+###
+ci-dependencies: 
+	@pip install -r requirements.txt
