@@ -41,6 +41,8 @@ def fillItens(soup):
                     jsonItem['unit'] = clearText(htmlValue).replace("UN: ", '')
                 if (span['class'][0] == 'RvlUnit'):
                     jsonItem['unitaryValue'] = clearText(htmlValue).replace("Vl. Unit.:", '').strip()
+                if (span['class'][0] == 'valor'):
+                    jsonItem['totalValue'] = clearText(htmlValue).strip()
         json['itens'].append(jsonItem)
 
 def fillNfceTotals(soup):
