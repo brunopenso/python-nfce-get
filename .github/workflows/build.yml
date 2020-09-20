@@ -1,4 +1,12 @@
-on: push
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - README.md
+      - LICENSE
+      - .gitignore
+      - .vscode/*
 name: Build
 jobs:
     sonarcloud:
@@ -19,8 +27,5 @@ jobs:
                 -Dsonar.projectKey=9b6a84d1-544b-4413-8c39-bb02a0de21ea
                 -Dsonar.python.coverage.reportPaths=coverage.xml
                 -Dsonar.sources=src
-                -Dsonar.test.exclusions=tests/**
-                -Dsonar.verbose=true
+                -Dsonar.coverage.exclusions=**tests**
                 -Dsonar.language=py
-
-#                -Dsonar.tests=tests/
