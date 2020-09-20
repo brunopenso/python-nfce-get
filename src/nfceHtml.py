@@ -59,6 +59,8 @@ def fillNfceTotals(soup):
             json['totals']['discounts'] = value
         if ('nformação dos Tributos Totais Incidentes' in label):
             json['totals']['taxes'] = value
+        if (label == 'Valor a pagar R$:'):
+            json['totals']['valueToPay'] = value
 
 def fillNfceInfos(soup):
     divInfo = soup.find(id='infos')
