@@ -67,25 +67,32 @@ def fill_nfce_infos(soup):
     divs = div_info.find_all('div')
     for div in divs:
         h4_tag = div.find('h4')
-        if (h4_tag is not None and h4_tag.get_text() == 'Informações gerais da Nota'):
-            lis = div.find('li')
-            for li in lis:
-                if (li is not None and li != '\n' and isinstance(li, Tag)):
-                    if (li.get_text().strip() == 'Número:'):
-                        json['nfce']['numero'] = li.nextSibling.strip()
-                    if (li.get_text().strip() == 'Série:'):
-                        json['nfce']['serie'] = li.nextSibling.strip()
-                    if (li.get_text().strip() == 'Emissão:'):
-                        date_list = li.nextSibling.strip().split(' ')
-                        json['nfce']['date'] = date_list[0] + ' ' + date_list[1]
-                    if (li.get_text().strip() == 'Protocolo de Autorização:'):
-                        json['nfce']['protocol'] = li.nextSibling.strip()
-                    if ('Ambiente de Produção' in li.get_text()):
-                        value = li.get_text().split('-')
-                        json['nfce']['version'] = clear_text(value[1]).replace('Versão XML: ', '')
+        if (h4_tag is None):
+            continue
+        if (h4_tag.get_text() == 'Informações gerais da Nota'):
+            fill_nfce_info_general(div)
         if (h4_tag is not None and h4_tag.get_text() == 'Chave de acesso'):
             key = div.find('span')
             json['nfce']['protocol'] = normalize_key(key.get_text())
+
+def fill_nfce_info_general(div):
+    lis = div.find('li')
+    for li in lis:
+        if (li is None or li == '\n'):
+            continue
+        if (isinstance(li, Tag)):
+            if (li.get_text().strip() == 'Número:'):
+                json['nfce']['numero'] = li.nextSibling.strip()
+            if (li.get_text().strip() == 'Série:'):
+                json['nfce']['serie'] = li.nextSibling.strip()
+            if (li.get_text().strip() == 'Emissão:'):
+                date_list = li.nextSibling.strip().split(' ')
+                json['nfce']['date'] = date_list[0] + ' ' + date_list[1]
+            if (li.get_text().strip() == 'Protocolo de Autorização:'):
+                json['nfce']['protocol'] = li.nextSibling.strip()
+            if ('Ambiente de Produção' in li.get_text()):
+                value = li.get_text().split('-')
+                json['nfce']['version'] = clear_text(value[1]).replace('Versão XML: ', '')
 
 def get_json_from_html(data):
     soup = BeautifulSoup(data, 'html.parser')
