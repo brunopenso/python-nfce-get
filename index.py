@@ -6,5 +6,5 @@ f = open("samples/receita.html", 'r')
 htmlData = f.read()
 
 jsonData = nfceHtml.getJsonFromHtml(htmlData)
-print('\n\n\n\n\n\n\n\n')
+
 print(jsonData)

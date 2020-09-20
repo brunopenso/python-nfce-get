@@ -1,7 +1,7 @@
 import json
 from src.util import clearText, normalizeKey
 
-from bs4 import BeautifulSoup
+from bs4 import Tag, NavigableString, BeautifulSoup
 
 json = {
     'local': {
@@ -18,7 +18,10 @@ def fillCompanyData(soup):
     place = divs[1].find_all('div')
 
     json['local']['name'] = clearText(place[0].get_text())
-    json['local']['cnpj'] = clearText(place[1].get_text())
+    cnpj = clearText(place[1].get_text())
+    if ('CNPJ:' in cnpj):
+        cnpj = cnpj.replace('CNPJ:','').strip()
+    json['local']['cnpj'] = cnpj
     json['local']['address'] = clearText(place[2].get_text())
 
 def fillItens(soup):
@@ -55,6 +58,28 @@ def fillNfceTotals(soup):
         if ('nformação dos Tributos Totais Incidentes' in label):
             json['totals']['taxes'] = value
 
+def fillNfceInfos(soup):
+    divInfo = soup.find(id='infos')
+    divs = divInfo.find_all('div')
+    for div in divs:
+        h4Tag = div.find('h4')
+        if (h4Tag is not None and h4Tag.get_text() == 'Informações gerais da Nota'):
+            lis = div.find('li')
+            for li in lis:
+                if (li is not None and li != '\n' and isinstance(li, Tag)):
+                    if (li.get_text().strip() == 'Número:'):
+                        json['nfce']['numero'] = li.nextSibling.strip()
+                    if (li.get_text().strip() == 'Série:'):
+                        json['nfce']['serie'] = li.nextSibling.strip()
+                    if (li.get_text().strip() == 'Emissão:'):
+                        dateList = li.nextSibling.strip().split(' ')
+                        json['nfce']['date'] = dateList[0] + ' ' + dateList[1]
+                    if (li.get_text().strip() == 'Protocolo de Autorização:'):
+                        json['nfce']['protocol'] = li.nextSibling.strip()
+        if (h4Tag is not None and h4Tag.get_text() == 'Chave de acesso'):
+            key = div.find('span')
+            json['nfce']['protocol'] = normalizeKey(key.get_text())
+
 def getJsonFromHtml(data):
     soup = BeautifulSoup(data, 'html.parser')
 
@@ -64,9 +89,6 @@ def getJsonFromHtml(data):
 
     fillNfceTotals(soup)
 
-    spans = soup.find_all('span')
-    for span in spans:
-        if (span['class'][0] == 'chave'):
-            json['nfce']['key'] = normalizeKey(span.get_text())
+    fillNfceInfos(soup)
 
     return json
