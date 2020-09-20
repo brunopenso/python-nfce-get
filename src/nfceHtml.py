@@ -13,8 +13,8 @@ json = {
     }
 }
 def fill_company_data(soup):
-    divConteudo = soup.find(id="conteudo")
-    divs = divConteudo.find_all('div')
+    div_conteudo = soup.find(id="conteudo")
+    divs = div_conteudo.find_all('div')
     place = divs[1].find_all('div')
 
     json['local']['name'] = clear_text(place[0].get_text())
@@ -28,22 +28,22 @@ def fill_itens(soup):
     tableResult = soup.find(id="tabResult").find_all("tr")
     for row in tableResult:
         tds = row.find_all("td")
-        jsonItem = {}
+        json_item = {}
         for column in tds:
             spans = column.find_all('span')
             for span in spans:
-                htmlValue = span.get_text()
+                html_value = span.get_text()
                 if (span['class'][0] == 'txtTit2'):
-                    jsonItem['name'] = clear_text(htmlValue)
+                    json_item['name'] = clear_text(html_value)
                 if (span['class'][0] == 'Rqtd'):
-                    jsonItem['quantity'] = clear_text(htmlValue).replace("Qtde.:", '')
+                    json_item['quantity'] = clear_text(html_value).replace("Qtde.:", '')
                 if (span['class'][0] == 'RUN'):
-                    jsonItem['unit'] = clear_text(htmlValue).replace("UN: ", '')
+                    json_item['unit'] = clear_text(html_value).replace("UN: ", '')
                 if (span['class'][0] == 'RvlUnit'):
-                    jsonItem['unitaryValue'] = clear_text(htmlValue).replace("Vl. Unit.:", '').strip()
+                    json_item['unitaryValue'] = clear_text(html_value).replace("Vl. Unit.:", '').strip()
                 if (span['class'][0] == 'valor'):
-                    jsonItem['totalValue'] = clear_text(htmlValue).strip()
-        json['itens'].append(jsonItem)
+                    json_item['totalValue'] = clear_text(html_value).strip()
+        json['itens'].append(json_item)
 
 def fill_nfce_totals(soup):
     totals = soup.find(id="totalNota")
@@ -63,11 +63,11 @@ def fill_nfce_totals(soup):
             json['totals']['valueToPay'] = value
 
 def fill_nfce_infos(soup):
-    divInfo = soup.find(id='infos')
-    divs = divInfo.find_all('div')
+    div_info = soup.find(id='infos')
+    divs = div_info.find_all('div')
     for div in divs:
-        h4Tag = div.find('h4')
-        if (h4Tag is not None and h4Tag.get_text() == 'Informações gerais da Nota'):
+        h4_tag = div.find('h4')
+        if (h4_tag is not None and h4_tag.get_text() == 'Informações gerais da Nota'):
             lis = div.find('li')
             for li in lis:
                 if (li is not None and li != '\n' and isinstance(li, Tag)):
@@ -76,14 +76,14 @@ def fill_nfce_infos(soup):
                     if (li.get_text().strip() == 'Série:'):
                         json['nfce']['serie'] = li.nextSibling.strip()
                     if (li.get_text().strip() == 'Emissão:'):
-                        dateList = li.nextSibling.strip().split(' ')
-                        json['nfce']['date'] = dateList[0] + ' ' + dateList[1]
+                        date_list = li.nextSibling.strip().split(' ')
+                        json['nfce']['date'] = date_list[0] + ' ' + date_list[1]
                     if (li.get_text().strip() == 'Protocolo de Autorização:'):
                         json['nfce']['protocol'] = li.nextSibling.strip()
                     if ('Ambiente de Produção' in li.get_text()):
                         value = li.get_text().split('-')
                         json['nfce']['version'] = clear_text(value[1]).replace('Versão XML: ', '')
-        if (h4Tag is not None and h4Tag.get_text() == 'Chave de acesso'):
+        if (h4_tag is not None and h4_tag.get_text() == 'Chave de acesso'):
             key = div.find('span')
             json['nfce']['protocol'] = normalize_key(key.get_text())
 
