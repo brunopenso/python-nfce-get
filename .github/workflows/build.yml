@@ -1,0 +1,27 @@
+on:
+    # Trigger analysis when pushing in master or pull requests, and when creating
+    # a pull request. 
+    push:
+      branches:
+        - master
+name: Build
+jobs:
+    sonarcloud:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+          with:
+            # Disabling shallow clone is recommended for improving relevancy of reporting
+            fetch-depth: 0
+        - name: SonarCloud Scan
+          uses: sonarsource/sonarcloud-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          args: >
+            -Dsonar.organization=brunopenso
+            -Dsonar.projectKey=9b6a84d1-544b-4413-8c39-bb02a0de21ea
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.sources=src
+            -Dsonar.test.exclusions=tests/**
+            -Dsonar.tests=tests/
+            -Dsonar.verbose=true
