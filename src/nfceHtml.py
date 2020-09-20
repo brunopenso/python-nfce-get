@@ -28,22 +28,25 @@ def fill_itens(soup):
     table_result = soup.find(id="tabResult").find_all("tr")
     for row in table_result:
         tds = row.find_all("td")
-        json_item = {}
-        for column in tds:
-            spans = column.find_all('span')
-            for span in spans:
-                html_value = span.get_text()
-                if (span['class'][0] == 'txtTit2'):
-                    json_item['name'] = clear_text(html_value)
-                if (span['class'][0] == 'Rqtd'):
-                    json_item['quantity'] = clear_text(html_value).replace("Qtde.:", '')
-                if (span['class'][0] == 'RUN'):
-                    json_item['unit'] = clear_text(html_value).replace("UN: ", '')
-                if (span['class'][0] == 'RvlUnit'):
-                    json_item['unitaryValue'] = clear_text(html_value).replace("Vl. Unit.:", '').strip()
-                if (span['class'][0] == 'valor'):
-                    json_item['totalValue'] = clear_text(html_value).strip()
-        json['itens'].append(json_item)
+        fill_itens_item(tds)
+
+def fill_itens_item(tds):
+    json_item = {}
+    for column in tds:
+        spans = column.find_all('span')
+        for span in spans:
+            html_value = span.get_text()
+            if (span['class'][0] == 'txtTit2'):
+                json_item['name'] = clear_text(html_value)
+            if (span['class'][0] == 'Rqtd'):
+                json_item['quantity'] = clear_text(html_value).replace("Qtde.:", '')
+            if (span['class'][0] == 'RUN'):
+                json_item['unit'] = clear_text(html_value).replace("UN: ", '')
+            if (span['class'][0] == 'RvlUnit'):
+                json_item['unitaryValue'] = clear_text(html_value).replace("Vl. Unit.:", '').strip()
+            if (span['class'][0] == 'valor'):
+                json_item['totalValue'] = clear_text(html_value).strip()
+    json['itens'].append(json_item)
 
 def fill_nfce_totals(soup):
     totals = soup.find(id="totalNota")
