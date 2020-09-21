@@ -27,5 +27,3 @@ jobs:
 
         - run: python3 -m twine upload --repository nfceget -u __token__ -u ${{ secrets.PYPI_PASS }} dist/*
           name: "Deploy package"
-          
-          pypi-AgEIcHlwaS5vcmcCJGVhMWRjMmRmLTk2N2ItNGJiYi1iZGIwLTA5NDNmZGYwYzhkNAACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYggw_E5HdTnQO7ZP7Yw8P6SYdthMjm1r_j-VMv3ggCSBw
