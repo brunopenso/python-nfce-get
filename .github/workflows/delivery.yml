@@ -1,6 +1,7 @@
 on:
-  release:
-    types: [released, edited]
+  push:
+    branches:
+      - main
 name: CD
 jobs:
     delivery:
