@@ -1,4 +1,4 @@
-export PYTHONPATH=$(shell pwd)/src/
+export PYTHONPATH=$(shell pwd)/nfceget/
 export PYTHONDONTWRITEBYTECODE=1
 
 .PHONY=help
