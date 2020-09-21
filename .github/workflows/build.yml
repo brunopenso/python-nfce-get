@@ -7,7 +7,7 @@ on:
       - LICENSE
       - .gitignore
       - .vscode/*
-name: CI/CD
+name: CI
 jobs:
     build:
         runs-on: ubuntu-latest

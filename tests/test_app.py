@@ -1,11 +1,11 @@
 import unittest
 import pytest
 from nfceget.app import json_from_qrcode_link, json_from_file
-from nfceget.errors import StateInvalidError
+from nfceget.StateInvalidError import StateInvalidError
 
 class test_app(unittest.TestCase):
     def test_url_invalid(self):
-        with pytest.raises(StateInvalidError):
+        with pytest.raises(Exception):
             json_from_qrcode_link('google.com')
     def test_url_empty(self):
         with pytest.raises(ValueError):
