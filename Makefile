@@ -18,7 +18,7 @@ test: clean## Run tests
 	@pytest -x tests/
 
 test-coverage: clean ## Run tests with coverage output
-	@pytest -x tests/ --cov . --cov-report term-missing --cov-report xml
+	@pytest -x tests/ --cov nfceget --cov-report term-missing --cov-report xml
 
 test-matching: clean ## Run tests by match ex: make test-matching k=name_of_test
 	@pytest -k $(k) tests/
