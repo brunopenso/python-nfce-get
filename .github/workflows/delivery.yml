@@ -26,5 +26,5 @@ jobs:
         - run: python3 -m pip install --user --upgrade twine
           name: "Install twine"
 
-        - run: python3 -m twine upload --repository nfceget -u __token__ -u ${{ secrets.PYPI_PASS }} dist/*
+        - run: python3 -m twine upload --repository pypi -u __token__ -u ${{ secrets.PYPI_PASS }} dist/*
           name: "Deploy package"
