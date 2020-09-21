@@ -7,6 +7,8 @@ on:
       - LICENSE
       - .gitignore
       - .vscode/*
+      - .github/workflows/delivery.yml
+      - .github/dependabot.yml
 name: CI
 jobs:
     build:

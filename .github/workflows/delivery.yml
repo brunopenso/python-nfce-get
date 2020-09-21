@@ -1,6 +1,6 @@
 on:
-    release:
-      types: [released]
+  release:
+    types: [released]
 name: CD
 jobs:
     delivery:
