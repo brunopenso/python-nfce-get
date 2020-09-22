@@ -1,1 +1,1 @@
-*.html linguist-detectable=false
+tests/html/*.html linguist-detectable=false
