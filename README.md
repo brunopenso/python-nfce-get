@@ -19,7 +19,9 @@ A biblioteca faz o parse de duas formas:
 - Informando a url do QRCode da nota. (Ex: Na nota do mercado, você escaneia o qrCode e informa o link para o parse)
 - Salvando o html da url do site da receita.
 
-### No seu código
+### Uso - Link QR Code
+
+*Observação:* O link abaixo não é válido
 
 ```python
 from nfceget import app
@@ -29,18 +31,38 @@ json = app.json_from_qrcode_link('http://www.fazenda.pr.gov.br/nfce/qrcode?p=412
 print(json)
 ```
 
+### Uso - Arquivo HTML
+
+1. Acesse o site da receite e visualize a sua nota
+2. Botão direito na página e view html
+3. Salvar o html
+4. Executar o código abaixo
+
+```python
+from nfceget import app
+
+json = app.json_from_file( './file.html' )
+
+print(json)
+```
+
+### Uso - Resultado
+
 O resultado será algo como:
+
 ```json
 {'local': {'name': 'IRMAOS MUFFATO E CIA LTDA', 'cnpj': '76.430.438/0053-00', 'address': 'Av Victor Ferreira do Amaral,1088,,Taruma,Curitiba,PR'}, 'itens': [{'name': 'CEBOLA KG', 'code': '3355', 'quantity': '0,79', 'unit': 'Kg', 'unitaryValue': '2,98', 'totalValue': '2,35'}, .... ], 'totals': {'quantityItens': '26', 'total': '281,03', 'discounts': '5,09', 'valueToPay': '275,94', 'taxes': '62,65'}, 'nfce': {'numero': '204507', 'serie': '15', 'date': '01/09/2020 15:22:18', 'protocolo': '141201044877471', 'version': '4.00', 'chave': '41200976430438005123450150002022071015187452'}}
 ```
 
-## Como instalar
+## Local
+
+### Como instalar
 
 ```bash
 make ci-dependencies
 ```
 
-## Como testar
+### Como testar
 
 ```bash
 make test-coverage
