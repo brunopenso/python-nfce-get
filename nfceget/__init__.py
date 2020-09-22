@@ -1,7 +1,7 @@
 import app
 
 class Nfceget(object):
-    def __init__():
+    def __init__(self):
         pass
 
     @staticmethod
