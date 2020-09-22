@@ -1,20 +1,20 @@
 import unittest
 import pytest
-from nfceget.app import json_from_qrcode_link, json_from_file
+from nfceget import app
 from nfceget.StateInvalidError import StateInvalidError
 
 class test_app(unittest.TestCase):
     def test_url_invalid(self):
         with pytest.raises(Exception):
-            json_from_qrcode_link('google.com')
+            app.json_from_qrcode_link('google.com')
     def test_url_empty(self):
         with pytest.raises(ValueError):
-            json_from_qrcode_link('')
+            app.json_from_qrcode_link('')
     def test_url_none(self):
         with pytest.raises(ValueError):
-            json_from_qrcode_link(None)
+            app.json_from_qrcode_link(None)
     def test_ok(self):
-        data1 = json_from_file('./tests/html/nfce1.html')
+        data1 = app.json_from_file('./tests/html/nfce1.html')
         self.assertEqual(data1['local']['name'], 'IRMAOS MUFFATO E CIA LTDA')
         self.assertEqual(len(data1['itens']), 26)
         itemSample = data1['itens'][1]
@@ -30,7 +30,7 @@ class test_app(unittest.TestCase):
         self.assertEqual(data1['nfce']['version'], '4.00')
         self.assertEqual(data1['nfce']['protocolo'], '141201339877471')
     def test_ok_2(self):
-        data2 = json_from_file('./tests/html/nfce2.html')
+        data2 = app.json_from_file('./tests/html/nfce2.html')
         self.assertEqual(data2['local']['name'], 'CONDOR SUPER CENTER LTDA')
         self.assertEqual(len(data2['itens']), 56)
         self.assertEqual(data2['totals']['quantityItens'], '56')
