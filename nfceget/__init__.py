@@ -2,6 +2,9 @@ import app
 
 class Nfceget(object):
     def __init__(self):
+        """
+        Left empty because the class is just an wrapper
+        """
         pass
 
     @staticmethod
