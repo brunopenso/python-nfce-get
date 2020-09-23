@@ -33,7 +33,7 @@ print(json)
 
 ### Uso - Arquivo HTML
 
-1. Acesse o site da receite e visualize a sua nota
+1. Acesse o site do Nota Paraná e visualize a sua nota
 2. Botão direito na página e view html
 3. Salvar o html
 4. Executar o código abaixo
