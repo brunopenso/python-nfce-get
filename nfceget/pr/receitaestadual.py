@@ -81,6 +81,35 @@ def fill_nfce_totals(json, soup):
             json['totals']['valueToPay'] = value
     json['totals']['quantityItens'] = len(json['itens'])
 
+def fill_nfce_infos(json, soup):
+    divs = soup.find_all('div')
+    for div in divs:
+        if (div['class'][0] == "GeralXslt"):
+            tds = div.find_all('td')
+            for td in tds:
+                label = clear_text(td.find('label').get_text())
+                value = clear_text(td.find('span').get_text())
+                if (label == 'Chave de Acesso'):
+                    json['nfce']['chave'] = normalize_key(value)
+                if (label == 'Número'):
+                    json['nfce']['numero'] = value
+                if (label == 'Versão XML'):
+                    json['nfce']['version'] = value
+        break
+    nfce = soup.find(id='NFe')
+    tds = nfce.find_all('td')
+    for td in tds:
+        if (td.find('label') is None or td.find('span') is None):
+             continue
+        label = clear_text(td.find('label').get_text())
+        value = clear_text(td.find('span').get_text())
+        if (label == "Data de Emissão"):
+            json['nfce']['date'] = value.replace('-03:00','')
+        if (label == "Série"):
+            json['nfce']['serie'] = value
+        if (label == 'Protocolo'):
+            json['nfce']['protocolo'] = value
+
 def get_json_from_html(data):
     json = {
         'local': {
@@ -98,5 +127,7 @@ def get_json_from_html(data):
     fill_itens(json, soup)
 
     fill_nfce_totals(json, soup)
+
+    fill_nfce_infos(json, soup)
 
     return json
