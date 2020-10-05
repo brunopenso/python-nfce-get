@@ -17,7 +17,7 @@ Inicialmente ela suporta o parse para o(s) estado(s):
 A biblioteca faz o parse de duas formas:
 
 - Informando a url do QRCode da nota. (Ex: Na nota do mercado, você escaneia o qrCode e informa o link para o parse)
-- Salvando o html da url do site da receita.
+- Salvando o html da url do site da receita que tem o formato parecido com essa [imagem](./assets/notaparana.png)
 
 ### Uso - Link QR Code
 
