@@ -12,11 +12,6 @@ def clear_text(text):
     value =  "".join(value).strip()
     value = value.replace('\t', '')
     value = value.replace('\\xa0', '')
-    # value = value.replace('  ', ' ')
-    # value = value.replace('  ', ' ')
-    # value = value.replace('  ', ' ')
-    # value = value.replace('  ', ' ')
-    # value = value.replace('  ', ' ')
     return value.strip()
 
 def remove_numbers(text):

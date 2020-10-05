@@ -65,8 +65,8 @@ def fill_item(json, table1, table2):
         if (label == 'Código do Produto'):
             json_item['code'] = value
         if (label == 'Valor unitário de comercialização'):
-            unitaryValue = float(value.replace(',', '.'))
-            json_item['unitaryValue'] = str(unitaryValue).replace('.', ',')
+            unitary_value = float(value.replace(',', '.'))
+            json_item['unitaryValue'] = str(unitary_value).replace('.', ',')
     json['itens'].append(json_item)
 
 def fill_nfce_totals(json, soup):
