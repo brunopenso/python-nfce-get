@@ -70,3 +70,6 @@ class test_app(unittest.TestCase):
         self.assertEqual(itemSample['unitaryValue'], '2,95')
         self.assertEqual(itemSample['totalValue'], '8,85')
         self.assertEqual(itemSample['code'], '3412480')
+    def test_restadual_1(self):
+        data = app.json_from_file('./tests/html/pr/receitaestadual1.html')
+        self.assertEqual(len(data['itens']), 0)
