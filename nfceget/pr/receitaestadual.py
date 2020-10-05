@@ -65,6 +65,23 @@ def fill_item(json, table1, table2):
             json_item['unitaryValue'] = value
     json['itens'].append(json_item)
 
+def fill_nfce_totals(json, soup):
+    div = soup.find(id="Totais")
+    tds = div.find_all('td')
+    for td in tds:
+        label = clear_text(td.find('label').get_text())
+        value = clear_text(td.find('span').get_text())
+        #if (label == 'Qtd. total de itens:'):
+        #    json['totals']['quantityItens'] = value
+        if (label == 'Valor Total dos Produtos'):
+            json['totals']['total'] = value
+        if (label == 'Valor Total dos Descontos'):
+            json['totals']['discounts'] = value
+        if ('Valor Aproximado dos Tributos' in label):
+            json['totals']['taxes'] = value
+        if (label == 'Valor Total da NFe'):
+            json['totals']['valueToPay'] = value
+
 def get_json_from_html(data):
     json = {
         'local': {
@@ -80,5 +97,7 @@ def get_json_from_html(data):
     fill_company_data(json, soup)
 
     fill_itens(json, soup)
+
+    fill_nfce_totals(json, soup)
 
     return json
