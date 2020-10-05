@@ -1,5 +1,5 @@
 import urllib3
-from .htmlNfce import run
+from .htmlNfce import run as notaparana
 from .StateInvalidError import StateInvalidError
 
 listOfStatesAvailableQrCode = ['pr.gov.br/nfce/qrcode']
@@ -11,11 +11,11 @@ def json_from_qrcode_link(link):
         if (states in link):
             http = urllib3.PoolManager()
             html_data = http.request('GET', link).data
-            return run(html_data)
+            return notaparana(html_data)
     raise StateInvalidError('De acordo com o link informado o estado não é suportado. Por favor consulte a documentação para verificar quais estados estão disponíveis.')
 
 def json_from_file(file_path):
     f = open(file_path, 'r')
     html_data = f.read()
     f.close()
-    return run(html_data)
+    return notaparana(html_data)
