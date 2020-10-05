@@ -19,6 +19,8 @@ A biblioteca faz o parse de duas formas:
 - Informando a url do QRCode da nota. (Ex: Na nota do mercado, você escaneia o qrCode e informa o link para o parse)
 - Salvando o html da url do site da nota paraná que tem o formato parecido com essa [imagem](./assets/notaparana.png) - Acesso através do site: `http://www.notaparana.pr.gov.br`
 - Salvando o html da url do site da receita que tem o formato parecido com essa [imagem](./assets/receitaparana.png) - Acesso através do site: `http://www.sped.fazenda.pr.gov.br/modules/conteudo/nfce.php?consulta=completa`
+  - Nesse site na aba *Informações Adicionais*  tem um campo chamado **QR-Code**.
+  - Você pode copiar o link do QRCode e utilizar a opção anterior para recuperar seus dados
 
 ### Uso - Link QR Code
 

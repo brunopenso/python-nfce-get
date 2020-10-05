@@ -48,9 +48,12 @@ def fill_item(json, table1, table2):
         if (clazz == 'fixo-prod-serv-descricao'):
             json_item['name'] = value
         if (clazz == 'fixo-prod-serv-qtd'):
-            json_item['quantity'] = value
+            qtde = str(float(value.replace(',', '.')))
+            if (qtde.split('.')[1] == "0"):
+                qtde = qtde.split('.')[0]
+            json_item['quantity'] = qtde.replace('.', ',')
         if (clazz == 'fixo-prod-serv-uc'):
-            json_item['unit'] = value
+            json_item['unit'] = value.upper()
         if (clazz == 'fixo-prod-serv-vb'):
             json_item['totalValue'] = value.strip()
     tds2 = table2.find_all('td')
@@ -62,7 +65,8 @@ def fill_item(json, table1, table2):
         if (label == 'Código do Produto'):
             json_item['code'] = value
         if (label == 'Valor unitário de comercialização'):
-            json_item['unitaryValue'] = value
+            unitaryValue = float(value.replace(',', '.'))
+            json_item['unitaryValue'] = str(unitaryValue).replace('.', ',')
     json['itens'].append(json_item)
 
 def fill_nfce_totals(json, soup):

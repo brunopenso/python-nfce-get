@@ -72,4 +72,18 @@ class test_app(unittest.TestCase):
         self.assertEqual(itemSample['code'], '3412480')
     def test_restadual_1(self):
         data = app.json_from_file('./tests/html/pr/receitaestadual1.html')
-        self.assertEqual(len(data['itens']), 0)
+        self.assertEqual(len(data['itens']), 36)
+        itemSample = data['itens'][3]
+        self.assertEqual(itemSample['name'], 'WAFER BAUDUCCO 140G')
+        self.assertEqual(itemSample['quantity'], '1')
+        self.assertEqual(itemSample['unit'], 'UN')
+        self.assertEqual(itemSample['unitaryValue'], '1,98')
+        self.assertEqual(itemSample['totalValue'], '1,98')
+        self.assertEqual(itemSample['code'], '165822')
+        itemSample2 = data['itens'][11]
+        self.assertEqual(itemSample2['name'], 'TOMATE KG')
+        self.assertEqual(itemSample2['quantity'], '0,87')
+        self.assertEqual(itemSample2['unit'], 'KG')
+        self.assertEqual(itemSample2['unitaryValue'], '4,98')
+        self.assertEqual(itemSample2['totalValue'], '4,33')
+        self.assertEqual(itemSample2['code'], '3416')
