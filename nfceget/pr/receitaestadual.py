@@ -71,8 +71,6 @@ def fill_nfce_totals(json, soup):
     for td in tds:
         label = clear_text(td.find('label').get_text())
         value = clear_text(td.find('span').get_text())
-        #if (label == 'Qtd. total de itens:'):
-        #    json['totals']['quantityItens'] = value
         if (label == 'Valor Total dos Produtos'):
             json['totals']['total'] = value
         if (label == 'Valor Total dos Descontos'):
@@ -81,6 +79,7 @@ def fill_nfce_totals(json, soup):
             json['totals']['taxes'] = value
         if (label == 'Valor Total da NFe'):
             json['totals']['valueToPay'] = value
+    json['totals']['quantityItens'] = len(json['itens'])
 
 def get_json_from_html(data):
     json = {
