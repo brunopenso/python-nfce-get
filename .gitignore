@@ -131,3 +131,5 @@ dmypy.json
 samples/
 
 src/localTest.py
+
+teste.html
