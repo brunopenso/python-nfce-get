@@ -1,7 +1,7 @@
 import json
 import re
 from ..util import clear_text, normalize_key
-
+from ..BadQRCodeError import BadQRCodeError
 from bs4 import Tag, NavigableString, BeautifulSoup
 
 def fill_company_data(json, soup):
@@ -104,6 +104,8 @@ def get_json_from_html(data):
         }
     }
     soup = BeautifulSoup(data, 'html.parser')
+    if ('QRCode mal formatado' in str(soup)):
+        raise BadQRCodeError('The link provided is invalid')
 
     fill_company_data(json, soup)
 
