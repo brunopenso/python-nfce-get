@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="nfceget", # Replace with your own username
-    version="1.0.5",
+    version="1.0.6",
     author="Bruno Penso",
     description="Pacote para recuperar uma NFCE (nota fiscal consumidor eletronica) e transformar em json.",
     long_description=long_description,
