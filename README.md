@@ -8,6 +8,8 @@ Biblioteca em python que recupera as informações de uma nota fiscal consumidor
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=9b6a84d1-544b-4413-8c39-bb02a0de21ea&metric=coverage)](https://sonarcloud.io/dashboard?id=9b6a84d1-544b-4413-8c39-bb02a0de21ea)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=9b6a84d1-544b-4413-8c39-bb02a0de21ea&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=9b6a84d1-544b-4413-8c39-bb02a0de21ea)
 
+
+[![Known Vulnerabilities](https://snyk.io/test/github/brunopenso/python-nfce-get/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/brunopenso/python-nfce-get?targetFile=requirements.txt)
 ## Uso
 
 Inicialmente ela suporta o parse para o(s) estado(s):
