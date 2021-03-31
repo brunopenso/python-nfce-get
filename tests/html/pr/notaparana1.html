@@ -1,655 +1,687 @@
+<html>
+<title>DF-e Portal/Pr - Consulta DANFE NFC-e</title>
 
-<html><title>DF-e Portal/Pr - Consulta DANFE NFC-e</title><head>  <meta name="viewport" content="width=device-width, initial-scale=1"/> <meta http-equiv="X-UA-Compatible" content="IE=9, IE=edge" /> <link rel="stylesheet" type="text/css" href="https://www.dfews.fazenda.pr.gov.br/dfews/css/nfce/danferesponsivo/jquery.mobile-1.4.5.min.css"> <link rel="stylesheet" type="text/css" href="https://www.dfews.fazenda.pr.gov.br/dfews/css/nfce/danferesponsivo/nfceMob.css"> <link rel="stylesheet" type="text/css" href="https://www.dfews.fazenda.pr.gov.br/dfews/css/nfce/danferesponsivo/nfceMob_ie.css"> <link rel="stylesheet" type="text/css" href="https://www.dfews.fazenda.pr.gov.br/dfews/css/print.css"> <script type="text/javascript" src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/index.js"></script> <script type="text/javascript" src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/jquery.js"></script> <script type="text/javascript" src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/jquery.mobile-1.4.5.min.js"></script> <script type="text/javascript" src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/jqueryui.js"></script> <script type="text/javascript" src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/util.js"></script></head><body>
-    <div data-role="header" xmlns:n="http://www.portalfiscal.inf.br/nfe" xmlns:chave="http://exslt.org/chaveacesso" xmlns:r="http://www.serpro.gov.br/nfe/remessanfe.xsd">
-     <h1 class="tit">
-      <div class="notprint">
-       <p align="center"><a href=javascript:window.print()>Imprimir</a></p>
-      </div>
-      <img src="https://www.dfews.fazenda.pr.gov.br/dfews/images/logoNFCe2.PNG" width="90" height="64" alt="NFC-e">
-      </img>
-      <p>DOCUMENTO AUXILIAR DA NOTA FISCAL DE CONSUMIDOR ELETRÔNICA</p>
-      <p></p>
-     </h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9, IE=edge" />
+    <link rel="stylesheet" type="text/css"
+        href="https://www.dfews.fazenda.pr.gov.br/dfews/css/nfce/danferesponsivo/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://www.dfews.fazenda.pr.gov.br/dfews/css/nfce/danferesponsivo/nfceMob.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://www.dfews.fazenda.pr.gov.br/dfews/css/nfce/danferesponsivo/nfceMob_ie.css">
+    <link rel="stylesheet" type="text/css" href="https://www.dfews.fazenda.pr.gov.br/dfews/css/print.css">
+    <script type="text/javascript"
+        src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/index.js"></script>
+    <script type="text/javascript"
+        src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/jquery.js"></script>
+    <script type="text/javascript"
+        src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript"
+        src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/jqueryui.js"></script>
+    <script type="text/javascript"
+        src="https://www.dfews.fazenda.pr.gov.br/dfews/js/nfce/danferesponsivo/util.js"></script>
+</head>
+
+<body>
+    <div data-role="header" xmlns:n="http://www.portalfiscal.inf.br/nfe" xmlns:chave="http://exslt.org/chaveacesso"
+        xmlns:r="http://www.serpro.gov.br/nfe/remessanfe.xsd">
+        <h1 class="tit">
+            <div class="notprint">
+                <p align="center"><a href=javascript:window.print()>Imprimir</a></p>
+            </div>
+            <img src="https://www.dfews.fazenda.pr.gov.br/dfews/images/logoNFCe2.PNG" width="90" height="64"
+                alt="NFC-e">
+            </img>
+            <p>DOCUMENTO AUXILIAR DA NOTA FISCAL DE CONSUMIDOR ELETRÔNICA</p>
+            <p></p>
+        </h1>
     </div>
-    <div data-role="content" xmlns:n="http://www.portalfiscal.inf.br/nfe" xmlns:chave="http://exslt.org/chaveacesso" xmlns:r="http://www.serpro.gov.br/nfe/remessanfe.xsd">
-     <div id="conteudo">
-      <div id="avisos">
-      </div>
-      <div class="txtCenter">
-       <div id="u20" class="txtTopo">IRMAOS MUFFATO E CIA LTDA</div>
-       <div class="text">
-                CNPJ:
-                76.430.438/0053-00</div>
-       <div class="text">Av Victor Ferreira do Amaral,
-            1088,
-            ,
-            Taruma,
-            Curitiba,
-            PR</div>
-      </div>
-      <table border="0" align="center" cellpadding="0" cellspacing="0" id="tabResult" data-filter="true">
-       <tr id="Item + 1">
-        <td valign="top">
-         <span class="txtTit2">CEBOLA KG</span>
-         <span class="RCod">(Código: 3355)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>0,79
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 2,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">2,35</span>
-        </td>
-       </tr>
-       <tr id="Item + 2">
-        <td valign="top">
-         <span class="txtTit2">QUEIJO PROVOLONE KG</span>
-         <span class="RCod">(Código: 100704)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>0,266
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 63,99
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">17,02</span>
-        </td>
-       </tr>
-       <tr id="Item + 3">
-        <td valign="top">
-         <span class="txtTit2">QUEIJO POLENGUI 68G</span>
-         <span class="RCod">(Código: 198415)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,59
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">4,59</span>
-        </td>
-       </tr>
-       <tr id="Item + 4">
-        <td valign="top">
-         <span class="txtTit2">QUEIJO POLENGUI 68G</span>
-         <span class="RCod">(Código: 198415)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,59
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">4,59</span>
-        </td>
-       </tr>
-       <tr id="Item + 5">
-        <td valign="top">
-         <span class="txtTit2">CEBOLA ROXA KG</span>
-         <span class="RCod">(Código: 3366)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>0,385
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 9,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">3,84</span>
-        </td>
-       </tr>
-       <tr id="Item + 6">
-        <td valign="top">
-         <span class="txtTit2">KIT CAVALLI SOP 400G</span>
-         <span class="RCod">(Código: 227055)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 5,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">5,98</span>
-        </td>
-       </tr>
-       <tr id="Item + 7">
-        <td valign="top">
-         <span class="txtTit2">MANGA TOMY kg</span>
-         <span class="RCod">(Código: 996)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1,375
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 3,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">5,47</span>
-        </td>
-       </tr>
-       <tr id="Item + 8">
-        <td valign="top">
-         <span class="txtTit2">HORTFG MEXERICA KG</span>
-         <span class="RCod">(Código: 30351)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>0,765
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 5,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">4,57</span>
-        </td>
-       </tr>
-       <tr id="Item + 9">
-        <td valign="top">
-         <span class="txtTit2">FRIGID PRATIC C UN</span>
-         <span class="RCod">(Código: 217343)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 39,99
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">39,99</span>
-        </td>
-       </tr>
-       <tr id="Item + 10">
-        <td valign="top">
-         <span class="txtTit2">MANGA ESPADA KG</span>
-         <span class="RCod">(Código: 41133)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>0,38
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">1,89</span>
-        </td>
-       </tr>
-       <tr id="Item + 11">
-        <td valign="top">
-         <span class="txtTit2">BATATA MONALISA KG</span>
-         <span class="RCod">(Código: 3210)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1,03
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 1,48
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">1,52</span>
-        </td>
-       </tr>
-       <tr id="Item + 12">
-        <td valign="top">
-         <span class="txtTit2">TOMATE RDU CER 350G</span>
-         <span class="RCod">(Código: 66573)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 10,14
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">10,14</span>
-        </td>
-       </tr>
-       <tr id="Item + 13">
-        <td valign="top">
-         <span class="txtTit2">TOMAT SABOR CAM 300G</span>
-         <span class="RCod">(Código: 187462)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 5,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">5,98</span>
-        </td>
-       </tr>
-       <tr id="Item + 14">
-        <td valign="top">
-         <span class="txtTit2">TOMATE RASTEIRO KG</span>
-         <span class="RCod">(Código: 50823)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>0,4
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 5,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">2,39</span>
-        </td>
-       </tr>
-       <tr id="Item + 15">
-        <td valign="top">
-         <span class="txtTit2">MELAO AMARELO KG</span>
-         <span class="RCod">(Código: 1010)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1,635
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">8,14</span>
-        </td>
-       </tr>
-       <tr id="Item + 16">
-        <td valign="top">
-         <span class="txtTit2">MAMAO PAPAYA kg</span>
-         <span class="RCod">(Código: 988)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1,28
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 3,98
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">5,09</span>
-        </td>
-       </tr>
-       <tr id="Item + 17">
-        <td valign="top">
-         <span class="txtTit2">LARANJA PERA KG</span>
-         <span class="RCod">(Código: 953)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1,165
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Kg
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 2,89
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">3,37</span>
-        </td>
-       </tr>
-       <tr id="Item + 18">
-        <td valign="top">
-         <span class="txtTit2">MOLH TABASC PIM 60ML</span>
-         <span class="RCod">(Código: 24936)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 22,99
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">22,99</span>
-        </td>
-       </tr>
-       <tr id="Item + 19">
-        <td valign="top">
-         <span class="txtTit2">SHOYU HINOMOTO 200ML</span>
-         <span class="RCod">(Código: 152474)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 3,79
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">3,79</span>
-        </td>
-       </tr>
-       <tr id="Item + 20">
-        <td valign="top">
-         <span class="txtTit2">FLOR ORQUIDEA UN</span>
-         <span class="RCod">(Código: 204103)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 59,99
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">59,99</span>
-        </td>
-       </tr>
-       <tr id="Item + 21">
-        <td valign="top">
-         <span class="txtTit2">CERV BECK S LT 350ML</span>
-         <span class="RCod">(Código: 259643)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,34
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">4,34</span>
-        </td>
-       </tr>
-       <tr id="Item + 22">
-        <td valign="top">
-         <span class="txtTit2">CERV BECK S LT 350ML</span>
-         <span class="RCod">(Código: 259643)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,34
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">4,34</span>
-        </td>
-       </tr>
-       <tr id="Item + 23">
-        <td valign="top">
-         <span class="txtTit2">CERV BECK S LT 350ML</span>
-         <span class="RCod">(Código: 259643)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,34
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">4,34</span>
-        </td>
-       </tr>
-       <tr id="Item + 24">
-        <td valign="top">
-         <span class="txtTit2">CERV BECK S LT 350ML</span>
-         <span class="RCod">(Código: 259643)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 4,34
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">4,34</span>
-        </td>
-       </tr>
-       <tr id="Item + 25">
-        <td valign="top">
-         <span class="txtTit2">SH HUGGIES SUA 600ML</span>
-         <span class="RCod">(Código: 189160)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 20,99
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">20,99</span>
-        </td>
-       </tr>
-       <tr id="Item + 26">
-        <td valign="top">
-         <span class="txtTit2">LINGUICA PERNIL 1KG</span>
-         <span class="RCod">(Código: 96934)</span>
-         <br></br>
-         <span class="Rqtd">
-          <strong>Qtde.:</strong>1
-         </span>
-         <span class="RUN">
-          <strong>UN: </strong>Un
-         </span>
-         <span class="RvlUnit">
-          <strong>Vl. Unit.:</strong> 28,99
-         </span>
-        </td>
-        <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
-        
-         <br></br>
-         <span class="valor">28,99</span>
-        </td>
-       </tr>
-      </table>
-      <div id="totalNota" class="txtRight">
-       <div id="linhaTotal">
-        <label>Qtd. total de itens:</label>
-        <span class="totalNumb">26</span>
-       </div>
-       <div id="linhaTotal">
-        <label>Valor total R$:</label>
-        <span class="totalNumb">281,03</span>
-       </div>
-       <div id="linhaTotal">
-        <label>Descontos R$:</label>
-        <span class="totalNumb">5,09</span>
-       </div>
-       <div id="linhaTotal" class="linhaShade">
-        <label>Valor a pagar R$:</label>
-        <span class="totalNumb txtMax">275,94</span>
-       </div>
-       <div id="linhaForma">
-        <label class="txtMax2">Forma de pagamento:</label>
-        <span class="totalNumb txtMax2">Valor pago R$:</span>
-       </div>
-       <div id="linhaTotal">
-        <label class="tx">Cartão de Crédito</label>
-        <span class="totalNumb">275,94</span>
-       </div>
-       <div id="linhaTotal" class="spcTop">
-        <label class="txtObs">Informação dos Tributos Totais Incidentes (Lei Federal 12.741/2012) R$</label>
-        <span class="totalNumb txtObs">62,65</span>
-       </div>
-      </div>
-     </div>
-     <div id="infos" class="txtCenter">
-      <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-collapsed="false">
-       <h4>Informações gerais da Nota</h4>
-       <ul data-role="listview" data-inset="false">
-        <li>
-         <strong>EMISSÃO NORMAL</strong>
-         <br></br>
-         <strong>Número: </strong>332207
-         <strong> Série: </strong>15
-         <strong> Emissão: </strong>01/09/2020 15:22:18  - Via Consumidor
-    
-         <br></br>
-         <strong>Protocolo de Autorização: </strong>141201339877471       01/09/2020 15:22:22
-         <br></br>
-         <strong>Ambiente de Produção - 
-    Versão XML: 4.00 - Versão XSLT: 2.03</strong>
-        </li>
-       </ul>
-      </div>
-      <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-collapsed="false">
-       <h4>Chave de acesso</h4>
-       <ul data-role="listview" data-inset="false">
-        <li>Consulte pela Chave de Acesso em
-                            
-                                http://www.fazenda.pr.gov.br/
-                                
-         <br></br>
-         <strong>Chave de acesso:</strong>
-         <br></br>
-         <span class="chave">4120 0976 4304 8888 5300 6501 5000 2022 0710 1518 7452</span>
-        </li>
-       </ul>
-      </div>
-      <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-collapsed="false">
-       <h4>Consumidor</h4>
-       <ul data-role="listview" data-inset="false">
-        <li>
-         <strong>CPF: </strong>aaaaaa
-        </li>
-        <li>
-         <strong>Nome: </strong>Cliente NFCe
-        </li>
-       </ul>
-      </div>
-      <div>Secretaria de Estado da Fazenda do Paraná - Data/Hora da Consulta: 20/09/2020 18:29:59</div>
-     </div>
-    </div></body></html>
+    <div data-role="content" xmlns:n="http://www.portalfiscal.inf.br/nfe" xmlns:chave="http://exslt.org/chaveacesso"
+        xmlns:r="http://www.serpro.gov.br/nfe/remessanfe.xsd">
+        <div id="conteudo">
+            <div id="avisos">
+            </div>
+            <div class="txtCenter">
+                <div id="u20" class="txtTopo">IRMAOS MUFFATO E CIA LTDA</div>
+                <div class="text">
+                    CNPJ:
+                    76.430.438/0053-00</div>
+                <div class="text">Av Victor Ferreira do Amaral,
+                    1088,
+                    ,
+                    Taruma,
+                    Curitiba,
+                    PR</div>
+            </div>
+            <table border="0" align="center" cellpadding="0" cellspacing="0" id="tabResult" data-filter="true">
+                <tr id="Item + 1">
+                    <td valign="top">
+                        <span class="txtTit2">CEBOLA KG</span>
+                        <span class="RCod">(Código: 3355)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>0,79
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 2,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">2,35</span>
+                    </td>
+                </tr>
+                <tr id="Item + 2">
+                    <td valign="top">
+                        <span class="txtTit2">QUEIJO PROVOLONE KG</span>
+                        <span class="RCod">(Código: 100704)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>0,266
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 63,99
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">17,02</span>
+                    </td>
+                </tr>
+                <tr id="Item + 3">
+                    <td valign="top">
+                        <span class="txtTit2">QUEIJO POLENGUI 68G</span>
+                        <span class="RCod">(Código: 198415)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,59
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">4,59</span>
+                    </td>
+                </tr>
+                <tr id="Item + 4">
+                    <td valign="top">
+                        <span class="txtTit2">QUEIJO POLENGUI 68G</span>
+                        <span class="RCod">(Código: 198415)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,59
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">4,59</span>
+                    </td>
+                </tr>
+                <tr id="Item + 5">
+                    <td valign="top">
+                        <span class="txtTit2">CEBOLA ROXA KG</span>
+                        <span class="RCod">(Código: 3366)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>0,385
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 9,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">3,84</span>
+                    </td>
+                </tr>
+                <tr id="Item + 6">
+                    <td valign="top">
+                        <span class="txtTit2">KIT CAVALLI SOP 400G</span>
+                        <span class="RCod">(Código: 227055)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 5,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">5,98</span>
+                    </td>
+                </tr>
+                <tr id="Item + 7">
+                    <td valign="top">
+                        <span class="txtTit2">MANGA TOMY kg</span>
+                        <span class="RCod">(Código: 996)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1,375
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 3,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">5,47</span>
+                    </td>
+                </tr>
+                <tr id="Item + 8">
+                    <td valign="top">
+                        <span class="txtTit2">HORTFG MEXERICA KG</span>
+                        <span class="RCod">(Código: 30351)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>0,765
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 5,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">4,57</span>
+                    </td>
+                </tr>
+                <tr id="Item + 9">
+                    <td valign="top">
+                        <span class="txtTit2">FRIGID PRATIC C UN</span>
+                        <span class="RCod">(Código: 217343)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 39,99
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">39,99</span>
+                    </td>
+                </tr>
+                <tr id="Item + 10">
+                    <td valign="top">
+                        <span class="txtTit2">MANGA ESPADA KG</span>
+                        <span class="RCod">(Código: 41133)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>0,38
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">1,89</span>
+                    </td>
+                </tr>
+                <tr id="Item + 11">
+                    <td valign="top">
+                        <span class="txtTit2">BATATA MONALISA KG</span>
+                        <span class="RCod">(Código: 3210)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1,03
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 1,48
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">1,52</span>
+                    </td>
+                </tr>
+                <tr id="Item + 12">
+                    <td valign="top">
+                        <span class="txtTit2">TOMATE RDU CER 350G</span>
+                        <span class="RCod">(Código: 66573)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 10,14
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">10,14</span>
+                    </td>
+                </tr>
+                <tr id="Item + 13">
+                    <td valign="top">
+                        <span class="txtTit2">TOMAT SABOR CAM 300G</span>
+                        <span class="RCod">(Código: 187462)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 5,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">5,98</span>
+                    </td>
+                </tr>
+                <tr id="Item + 14">
+                    <td valign="top">
+                        <span class="txtTit2">TOMATE RASTEIRO KG</span>
+                        <span class="RCod">(Código: 50823)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>0,4
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 5,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">2,39</span>
+                    </td>
+                </tr>
+                <tr id="Item + 15">
+                    <td valign="top">
+                        <span class="txtTit2">MELAO AMARELO KG</span>
+                        <span class="RCod">(Código: 1010)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1,635
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">8,14</span>
+                    </td>
+                </tr>
+                <tr id="Item + 16">
+                    <td valign="top">
+                        <span class="txtTit2">MAMAO PAPAYA kg</span>
+                        <span class="RCod">(Código: 988)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1,28
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 3,98
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">5,09</span>
+                    </td>
+                </tr>
+                <tr id="Item + 17">
+                    <td valign="top">
+                        <span class="txtTit2">LARANJA PERA KG</span>
+                        <span class="RCod">(Código: 953)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1,165
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Kg
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 2,89
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">3,37</span>
+                    </td>
+                </tr>
+                <tr id="Item + 18">
+                    <td valign="top">
+                        <span class="txtTit2">MOLH TABASC PIM 60ML</span>
+                        <span class="RCod">(Código: 24936)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 22,99
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">22,99</span>
+                    </td>
+                </tr>
+                <tr id="Item + 19">
+                    <td valign="top">
+                        <span class="txtTit2">SHOYU HINOMOTO 200ML</span>
+                        <span class="RCod">(Código: 152474)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 3,79
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">3,79</span>
+                    </td>
+                </tr>
+                <tr id="Item + 20">
+                    <td valign="top">
+                        <span class="txtTit2">FLOR ORQUIDEA UN</span>
+                        <span class="RCod">(Código: 204103)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 59,99
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">59,99</span>
+                    </td>
+                </tr>
+                <tr id="Item + 21">
+                    <td valign="top">
+                        <span class="txtTit2">CERV BECK S LT 350ML</span>
+                        <span class="RCod">(Código: 259643)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,34
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">4,34</span>
+                    </td>
+                </tr>
+                <tr id="Item + 22">
+                    <td valign="top">
+                        <span class="txtTit2">CERV BECK S LT 350ML</span>
+                        <span class="RCod">(Código: 259643)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,34
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">4,34</span>
+                    </td>
+                </tr>
+                <tr id="Item + 23">
+                    <td valign="top">
+                        <span class="txtTit2">CERV BECK S LT 350ML</span>
+                        <span class="RCod">(Código: 259643)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,34
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">4,34</span>
+                    </td>
+                </tr>
+                <tr id="Item + 24">
+                    <td valign="top">
+                        <span class="txtTit2">CERV BECK S LT 350ML</span>
+                        <span class="RCod">(Código: 259643)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 4,34
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">4,34</span>
+                    </td>
+                </tr>
+                <tr id="Item + 25">
+                    <td valign="top">
+                        <span class="txtTit2">SH HUGGIES SUA 600ML</span>
+                        <span class="RCod">(Código: 189160)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 20,99
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">20,99</span>
+                    </td>
+                </tr>
+                <tr id="Item + 26">
+                    <td valign="top">
+                        <span class="txtTit2">LINGUICA PERNIL 1KG</span>
+                        <span class="RCod">(Código: 96934)</span>
+                        <br></br>
+                        <span class="Rqtd">
+                            <strong>Qtde.:</strong>1
+                        </span>
+                        <span class="RUN">
+                            <strong>UN: </strong>Un
+                        </span>
+                        <span class="RvlUnit">
+                            <strong>Vl. Unit.:</strong> 28,99
+                        </span>
+                    </td>
+                    <td align="right" valign="top" class="txtTit3 noWrap">Vl. Total
+
+                        <br></br>
+                        <span class="valor">28,99</span>
+                    </td>
+                </tr>
+            </table>
+            <div id="totalNota" class="txtRight">
+                <div id="linhaTotal">
+                    <label>Qtd. total de itens:</label>
+                    <span class="totalNumb">26</span>
+                </div>
+                <div id="linhaTotal">
+                    <label>Valor total R$:</label>
+                    <span class="totalNumb">281,03</span>
+                </div>
+                <div id="linhaTotal">
+                    <label>Descontos R$:</label>
+                    <span class="totalNumb">5,09</span>
+                </div>
+                <div id="linhaTotal" class="linhaShade">
+                    <label>Valor a pagar R$:</label>
+                    <span class="totalNumb txtMax">275,94</span>
+                </div>
+                <div id="linhaForma">
+                    <label class="txtMax2">Forma de pagamento:</label>
+                    <span class="totalNumb txtMax2">Valor pago R$:</span>
+                </div>
+                <div id="linhaTotal">
+                    <label class="tx">Cartão de Crédito</label>
+                    <span class="totalNumb">275,94</span>
+                </div>
+                <div id="linhaTotal" class="spcTop">
+                    <label class="txtObs">Informação dos Tributos Totais Incidentes (Lei Federal 12.741/2012) R$</label>
+                    <span class="totalNumb txtObs">62,65</span>
+                </div>
+            </div>
+        </div>
+        <div id="infos" class="txtCenter">
+            <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"
+                data-collapsed="false">
+                <h4>Informações gerais da Nota</h4>
+                <ul data-role="listview" data-inset="false">
+                    <li>
+                        <strong>EMISSÃO NORMAL</strong>
+                        <br></br>
+                        <strong>Número: </strong>332207
+                        <strong> Série: </strong>15
+                        <strong> Emissão: </strong>01/09/2020 15:22:18 - Via Consumidor
+
+                        <br></br>
+                        <strong>Protocolo de Autorização: </strong>141201339877471 01/09/2020 15:22:22
+                        <br></br>
+                        <strong>Ambiente de Produção -
+                            Versão XML: 4.00 - Versão XSLT: 2.03</strong>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"
+                data-collapsed="false">
+                <h4>Chave de acesso</h4>
+                <ul data-role="listview" data-inset="false">
+                    <li>Consulte pela Chave de Acesso em
+
+                        http://www.fazenda.pr.gov.br/
+
+                        <br></br>
+                        <strong>Chave de acesso:</strong>
+                        <br></br>
+                        <span class="chave">4120 0976 4304 8888 5300 6501 5000 2022 0710 1518 7452</span>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"
+                data-collapsed="false">
+                <h4>Consumidor</h4>
+                <ul data-role="listview" data-inset="false">
+                    <li>
+                        <strong>CPF: </strong>aaaaaa
+                    </li>
+                    <li>
+                        <strong>Nome: </strong>Cliente NFCe
+                    </li>
+                </ul>
+            </div>
+            <div>Secretaria de Estado da Fazenda do Paraná - Data/Hora da Consulta: 20/09/2020 18:29:59</div>
+        </div>
+    </div>
+</body>
+</html>

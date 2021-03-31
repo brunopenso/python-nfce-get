@@ -1,0 +1,2 @@
+class BadQRCodeError(Exception):
+    pass

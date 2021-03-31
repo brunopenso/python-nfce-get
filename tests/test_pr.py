@@ -4,7 +4,7 @@ from nfceget import app
 from nfceget.StateInvalidError import StateInvalidError
 
 class test_app(unittest.TestCase):
-    def test_ok(self):
+    def test_qrcode_ok(self):
         data1 = app.json_from_file('./tests/html/pr/notaparana1.html')
         self.assertEqual(data1['local']['name'], 'IRMAOS MUFFATO E CIA LTDA')
         self.assertEqual(len(data1['itens']), 26)
@@ -20,7 +20,7 @@ class test_app(unittest.TestCase):
         self.assertEqual(data1['nfce']['date'], '01/09/2020 15:22:18')
         self.assertEqual(data1['nfce']['version'], '4.00')
         self.assertEqual(data1['nfce']['protocolo'], '141201339877471')
-    def test_ok_2(self):
+    def test_qrcode_ok_2(self):
         data2 = app.json_from_file('./tests/html/pr/notaparana2.html')
         self.assertEqual(data2['local']['name'], 'CONDOR SUPER CENTER LTDA')
         self.assertEqual(len(data2['itens']), 56)
@@ -42,7 +42,7 @@ class test_app(unittest.TestCase):
         self.assertEqual(itemSample['unitaryValue'], '9,49')
         self.assertEqual(itemSample['totalValue'], '9,49')
         self.assertEqual(itemSample['code'], '15213680')
-    def test_ok_3(self):
+    def test_qrcode_ok_3(self):
         data = app.json_from_file('./tests/html/pr/notaparana3.html')
         self.assertEqual(data['local']['name'], 'CONDOR SUPER CENTER LTDA')
         self.assertEqual(str(len(data['itens'])), data['totals']['quantityItens'])
@@ -72,4 +72,6 @@ class test_app(unittest.TestCase):
         self.assertEqual(itemSample['code'], '3412480')
     def test_restadual_1(self):
         data = app.json_from_file('./tests/html/pr/receitaestadual1.html')
-        self.assertEqual(len(data['itens']), 0)
+        print(data)
+    def test_restadual_2(self):
+        data = app.json_from_file('./tests/html/pr/receitaestadual2.html')

@@ -1,0 +1,2 @@
+class QrCodeLinkNotFound(Exception):
+    pass

@@ -8,20 +8,37 @@ Biblioteca em python que recupera as informações de uma nota fiscal consumidor
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=9b6a84d1-544b-4413-8c39-bb02a0de21ea&metric=coverage)](https://sonarcloud.io/dashboard?id=9b6a84d1-544b-4413-8c39-bb02a0de21ea)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=9b6a84d1-544b-4413-8c39-bb02a0de21ea&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=9b6a84d1-544b-4413-8c39-bb02a0de21ea)
 
-
 [![Known Vulnerabilities](https://snyk.io/test/github/brunopenso/python-nfce-get/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/brunopenso/python-nfce-get?targetFile=requirements.txt)
+
 ## Uso
 
-Inicialmente ela suporta o parse para o(s) estado(s):
-
-- Paraná
+### Paraná
 
 A biblioteca faz o parse de duas formas:
 
-- Informando a url do QRCode da nota. (Ex: Na nota do mercado, você escaneia o qrCode e informa o link para o parse)
-- Salvando o html da url do site da nota paraná que tem o formato parecido com essa [imagem](./assets/notaparana.png) - Acesso através do site: `http://www.notaparana.pr.gov.br`
-- Salvando o html da url do site da receita que tem o formato parecido com essa [imagem](./assets/receitaparana.png) - Acesso através do site: `http://www.sped.fazenda.pr.gov.br/modules/conteudo/nfce.php?consulta=completa`
+#### Link QR Code
+Ao receber a nota fiscal do estabelecimento você irá ver no final dela um QRCode. Faça o scan desse qr code com seu celular e use este link para processar (veja instruções no final dessa página)
 
+Modelo de url: http://www.fazenda.pr.gov.br/nfce/qrcode?p=41210276489406104970651080002472271201438086|2|1|1|85901C8C5A58990BA3026CB2DDDF75CF1580BC93
+
+#### Html do Site Nota Parana
+- Acesse o site `http://www.notaparana.pr.gov.br`
+- Faça seu login, encontre a nota e clique para visualizar
+- A imagem será algo como [imagem](./assets/notaparana.png)
+- Clique em exibir o código fonte e depois salve o html em um arquivo em seu computador
+
+#### Site Receita Estadual
+- Acesse o site `http://www.sped.fazenda.pr.gov.br/modules/conteudo/nfce.php?consulta=completa`
+- Informe o numero da nota e digite o código de verificação
+- Encontre a Aba *Informações Adicionais*  
+- Depois procure o campo **QR-Code**.
+- Copie o link do QR Code e use a opção de QR Code
+
+#### Limitações
+- Para consulta de notas no site da receita estadual através de API/WebServices é necessário um certificado o que acaba não sendo viável para essa biblioteca
+- O site da nota paraná precisa de usuário e senha para funcionar, então não entramos nesse nível de detalhe no desenvolvimento.
+
+## Uso
 ### Uso - Link QR Code
 
 *Observação:* O link abaixo não é válido
