@@ -2,6 +2,7 @@ import unittest
 import pytest
 from nfceget import app
 from nfceget.StateInvalidError import StateInvalidError
+from nfceget.QrCodeLinkNotFound import QrCodeLinkNotFound
 
 class test_app(unittest.TestCase):
     def test_qrcode_ok(self):
@@ -70,6 +71,15 @@ class test_app(unittest.TestCase):
         self.assertEqual(itemSample['unitaryValue'], '2,95')
         self.assertEqual(itemSample['totalValue'], '8,85')
         self.assertEqual(itemSample['code'], '3412480')
+
+    def test_restadual_error(self):
+        try:
+            app.json_from_file('./tests/html/pr/receitaestadual3.html')
+            # Fail on porpuse
+            self.assertEqual(1,2)
+        except QrCodeLinkNotFound as err:
+            self.assertEqual(err.args[0], 'Não foi possível encontrar a url do qr code no arquivo da receita estadual')
+
     def test_restadual_1(self):
         data = app.json_from_file('./tests/html/pr/receitaestadual1.html')
         print(data)
