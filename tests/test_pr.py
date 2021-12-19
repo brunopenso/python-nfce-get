@@ -83,5 +83,7 @@ class test_app(unittest.TestCase):
     def test_restadual_1(self):
         data = app.json_from_file('./tests/html/pr/receitaestadual1.html')
         print(data)
+        # TODO Assert some results here
     def test_restadual_2(self):
         data = app.json_from_file('./tests/html/pr/receitaestadual2.html')
+        # TODO Assert some results here
