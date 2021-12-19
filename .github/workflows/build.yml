@@ -11,6 +11,9 @@ on:
       - .github/workflows/delivery.yml
       - .github/dependabot.yml
       - .gitattributes
+  pull_request: 
+    types: [ opened, edited, reopened]
+  workflow_dispatch:
 name: CI
 jobs:
     build:
